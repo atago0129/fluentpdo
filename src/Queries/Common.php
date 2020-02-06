@@ -50,6 +50,66 @@ abstract class Common extends Base
 
     /** @var bool - Disable adding undefined joins to query? */
     protected $isSmartJoinEnabled = true;
+    
+    public function comment($parameters = []) {
+        return $this->execute('comment', $parameters);
+    }
+    
+    public function from($parameters = []) {
+        return $this->execute('from', $parameters);
+    }
+    
+    public function fullJoin($parameters = []) {
+        return $this->execute('fullJoin', $parameters);
+    }
+    
+    public function group($parameters = []) {
+        return $this->execute('group', $parameters);
+    }
+    
+    public function groupBy($parameters = []) {
+        return $this->execute('groupBy', $parameters);
+    }
+    
+    public function having($parameters = []) {
+        return $this->execute('having', $parameters);
+    }
+    
+    public function innerJoin($parameters = []) {
+        return $this->execute('innerJoin', $parameters);
+    }
+    
+    public function join($parameters = []) {
+        return $this->execute('join', $parameters);
+    }
+    
+    public function leftJoin($parameters = []) {
+        return $this->execute('leftJoin', $parameters);
+    }
+    
+    public function limit($parameters = []) {
+        return $this->execute('limit', $parameters);
+    }
+    
+    public function offset($parameters = []) {
+        return $this->execute('offset', $parameters);
+    }
+    
+    public function order($parameters = []) {
+        return $this->execute('order', $parameters);
+    }
+    
+    public function orderBy($parameters = []) {
+        return $this->execute('orderBy', $parameters);
+    }
+    
+    public function outerJoin($parameters = []) {
+        return $this->execute('outerJoin', $parameters);
+    }
+    
+    public function rightJoin($parameters = []) {
+        return $this->execute('rightJoin', $parameters);
+    }
 
     /**
      * @param string $name
@@ -57,7 +117,7 @@ abstract class Common extends Base
      *
      * @return $this
      */
-    public function __call($name, $parameters = [])
+    public function execute($name, $parameters)
     {
         if (!in_array($name, $this->validMethods)) {
             trigger_error("Call to invalid method " . get_class($this) . "::{$name}()", E_USER_ERROR);
